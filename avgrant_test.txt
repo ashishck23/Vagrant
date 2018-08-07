@@ -831,6 +831,80 @@ app1.dev
 app1.dev
 
 [vagrant@controller ~]$
+[vagrant@controller ~]$ ansible app -s -m user -a "name=ashish group=admin createhome=yes"
+[DEPRECATION WARNING]: The sudo command line option has been deprecated in favor of the "become" command line arguments. This feature will be removed in
+version 2.6. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+192.168.0.50 | SUCCESS => {
+    "changed": true,
+    "comment": "",
+    "create_home": true,
+    "group": 1001,
+    "home": "/home/ashish",
+    "name": "ashish",
+    "shell": "/bin/bash",
+    "state": "present",
+    "system": false,
+    "uid": 1001
+}
+192.168.0.62 | SUCCESS => {
+    "changed": true,
+    "comment": "",
+    "create_home": true,
+    "group": 1001,
+    "home": "/home/ashish",
+    "name": "ashish",
+    "shell": "/bin/bash",
+    "state": "present",
+    "system": false,
+    "uid": 1001
+}
+[vagrant@controller ~]$
+[vagrant@controller ~]$ ansible app -s -m group -a "name=admin state=present" --limit "192.168.0.62"
+[DEPRECATION WARNING]: The sudo command line option has been deprecated in favor of the "become" command line arguments. This feature will be removed in
+version 2.6. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+192.168.0.62 | SUCCESS => {
+    "changed": true,
+    "gid": 1001,
+    "name": "admin",
+    "state": "present",
+    "system": false
+}
+[vagrant@controller ~]$ ansible app -s -m group -a "name=admin state=present"
+[DEPRECATION WARNING]: The sudo command line option has been deprecated in favor of the "become" command line arguments. This feature will be removed in
+version 2.6. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+192.168.0.62 | SUCCESS => {
+    "changed": false,
+    "gid": 1001,
+    "name": "admin",
+    "state": "present",
+    "system": false
+}
+192.168.0.50 | SUCCESS => {
+    "changed": true,
+    "gid": 1001,
+    "name": "admin",
+    "state": "present",
+    "system": false
+}
+[vagrant@controller ~]$
+[vagrant@controller ~]$ ansible app -s -m user -a "name=ashish state=absent remove=yes"
+[DEPRECATION WARNING]: The sudo command line option has been deprecated in favor of the "become" command line arguments. This feature will be removed in
+version 2.6. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+192.168.0.50 | SUCCESS => {
+    "changed": true,
+    "force": false,
+    "name": "ashish",
+    "remove": true,
+    "state": "absent"
+}
+192.168.0.62 | SUCCESS => {
+    "changed": true,
+    "force": false,
+    "name": "ashish",
+    "remove": true,
+    "state": "absent"
+}
+[vagrant@controller ~]$
 
 
 
