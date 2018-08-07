@@ -811,6 +811,30 @@ SSH password:
 }
 [vagrant@controller ~]$
 
+[vagrant@controller ~]$ ansible app -a "hostname"
+192.168.0.62 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: Permission denied (publickey,password).\r\n",
+    "unreachable": true
+}
+192.168.0.50 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: Permission denied (publickey,password).\r\n",
+    "unreachable": true
+}
+[vagrant@controller ~]$ ansible -b -k app -a "hostname"
+SSH password:
+192.168.0.50 | SUCCESS | rc=0 >>
+app1.dev
+
+192.168.0.62 | SUCCESS | rc=0 >>
+app1.dev
+
+[vagrant@controller ~]$
+
+
+
+
 
 
 [vagrant@controller ~]$ vi /etc/ansible/hosts
@@ -828,3 +852,9 @@ ansible_ssh_pass=vagrant
 [vagrant@controller ~]$ sudo vi /etc/ansible/ansible.cfg
 host_key_checking = False
 
+
+
+/etc/ansible
+/usr/bin/ansible
+/usr/lib/python2.7/site-packages/ansible
+~
