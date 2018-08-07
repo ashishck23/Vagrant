@@ -905,6 +905,149 @@ version 2.6. Deprecation warnings can be disabled by setting deprecation_warning
     "state": "absent"
 }
 [vagrant@controller ~]$
+[vagrant@controller ~]$ ansible app -s -m user -a "name=ashish group=admin createhome=yes generate_ssh_key=yes"
+[DEPRECATION WARNING]: The sudo command line option has been deprecated in favor of the "become" command line arguments. This feature will be removed in
+version 2.6. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+192.168.0.62 | SUCCESS => {
+    "changed": true,
+    "comment": "",
+    "create_home": true,
+    "group": 1001,
+    "home": "/home/ashish",
+    "name": "ashish",
+    "shell": "/bin/bash",
+    "ssh_fingerprint": "2048 SHA256:KPRh+GD33ikUJ0nQ1XQfuALemVfSIb10SVqVQLq03Vk ansible-generated on app1.dev (RSA)",
+    "ssh_key_file": "/home/ashish/.ssh/id_rsa",
+    "ssh_public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDaM2pjodwpc8jozNs6+viO+4+e2eLshFcr0S+BY+lw1O7BPJACmCrzo5fQKg+5yAk5qYfqhxsEzoOtlzP2Zr9+GiaLV6zB5krHvBF/WPH8brg7EVY1TVbt+Deb/sdYSz952c6Z7WIcI97kd/TaBNBg+Ed0ZMdQnBHQ6WqqEvb3ThXSIUHHtq7opfj9oDvL6Mn6ZQw7DzXAAPfqfISqWhX0C7NeNFCqss0K5p4HgHTkT3+a/9DuAWpP9FDBL5w+uUbdwFH3MfFl+xGRCOflVLou7btw9/J6aW4nQmVwQK6Cz6fT98ngxhVrsbCsbwCVBtefal5hmjhu8oQeO5BLeirF ansible-generated on app1.dev",
+    "state": "present",
+    "system": false,
+    "uid": 1001
+}
+192.168.0.50 | SUCCESS => {
+    "changed": true,
+    "comment": "",
+    "create_home": true,
+    "group": 1001,
+    "home": "/home/ashish",
+    "name": "ashish",
+    "shell": "/bin/bash",
+    "ssh_fingerprint": "2048 SHA256:EzNSgluQR3ri2VCT91imihp7PYn6vBNSrXnRrdmvVhY ansible-generated on app1.dev (RSA)",
+    "ssh_key_file": "/home/ashish/.ssh/id_rsa",
+    "ssh_public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC1T9200A1Wn/vNrUu34x+T9Q9a0JlRQ25nwPVA2dTkM/zwZ/YsAR8Lq2DxCeL9Or6s/sWn0uezhqj8Jy2osMEctDKd1BWPQxIB5fPpcvNteMTTgns8fkJpw3hQ2WsOsMmmd+S1XSqEighMEVjZkn3oli2pbIJ2a+/sCg/C9MQUCHo1btHJLJ9p0Oi8sYa8QKrVddUjoQWMkigrmk7zsqzNRIZ3siP53HDLmaN5JTxvrHeLIaf9PIydJN/1dy+n3H22m5+CeEgQYeT18eSP8BQQ0GxMx3f14I6g2NQUQQIRGKzW8mBhc8GwFcCKYWxRXW44wTkIcdnrgfMpqX6LX7aL ansible-generated on app1.dev",
+    "state": "present",
+    "system": false,
+    "uid": 1001
+}
+[vagrant@controller ~]$
+
+
+
+[vagrant@controller ~]$ history|grep -i ansible
+    6  sudo yum install ansible
+    7  ansible --version
+    9  sudo vim /etc/ansible/hosts
+   10  ansible myappserver -m ping
+   11  ansible myappserver -b -k -m ping
+   12  ansible myappserver -b -k -m yum -a "name=ntp state=present"
+   13  ansible myappserver -b -k -m service -a "name=ntpd state=started"
+   14  ansible myappserver -b -k -m service -a "name=ntpd state=status"
+   15  ansible myappserver -b -k -m service -a "name=ntpd state=started"
+   16  sudo vim /etc/ansible/hosts
+   17  ansible app -m service -a "name=ntpd state=started"
+   18  sudo vim /etc/ansible/hosts
+   19  ansible app -m service -a "name=ntpd state=started"
+   20  sudo vim /etc/ansible/hosts
+   21  history| ansible
+   22  history|grep -i ansible
+   23  ansible app -b -k -m yum -a "name=ntp state=present"
+   24  sudo vim /etc/ansible/hosts
+   25  ansible app -m ping
+   27  ansible app -b -k -m ping
+   28  ansible app -b -k -m yum -a "name=ntp state=present"
+   29  [vagrant@controller ~]$ history|grep -i ansible
+   30      6  sudo yum install ansible
+   31      7  ansible --version
+   32      9  sudo vim /etc/ansible/hosts
+   33     10  ansible myappserver -m ping
+   34     11  ansible myappserver -b -k -m ping
+   35     12  ansible myappserver -b -k -m yum -a "name=ntp state=present"
+   36     13  ansible myappserver -b -k -m service -a "name=ntpd state=started"
+   37     14  ansible myappserver -b -k -m service -a "name=ntpd state=status"
+   38     15  ansible myappserver -b -k -m service -a "name=ntpd state=started"
+   39     16  sudo vim /etc/ansible/hosts
+   40     17  ansible app -m service -a "name=ntpd state=started"
+   41     18  sudo vim /etc/ansible/hosts
+   42     19  ansible app -m service -a "name=ntpd state=started"
+   43     20  sudo vim /etc/ansible/hosts
+   44     21  history| ansible
+   45     22  history|grep -i ansible
+   46     23  ansible app -b -k -m yum -a "name=ntp state=present"
+   47     24  sudo vim /etc/ansible/hosts
+   48     25  ansible app -m ping
+   49     26  history|grep -i ansible
+   50  [vagrant@controller ~]$ ansible myappserver -^C-k -m pingansible myappserver -b -k -m ping
+   51  [vagrant@controller ~]$ ansible app -b -k -m ping
+   61  [vagrant@controller ~]$ ansible app -b -k -m yum -a "name=ntp state=present"
+   77  ansible app -m ping
+   78  ansible app -b -k -m ping
+   79  ansible app -m ping
+   80  vi /etc/ansible/ansible.cfg
+   81  sudo vi /etc/ansible/ansible.cfg
+   82  vi /etc/ansible/hosts
+   83  locate ansible
+   86  find / -n "ansible"
+   87  find / -m "ansible"
+   88  find / -name ansible
+   89  find / -name ansible > /tmp/ansible.txt
+   90  vi /tmp/ansible.txt
+   91  ansible app -a "hostname"
+   92  ansible -b -k app -a "hostname"
+   93  [vagrant@controller ~]$ ansible app -a "hostname"
+  104  [vagrant@controller ~]$ ansible -b -k app -a "hostname"
+  112  ansible-playbook ntpplaybook.yml
+  114  ansible-playbook ntpplaybook.yml
+  116  ansible-playbook ntpplaybook.yml
+  118  ansible-playbook ntpplaybook.yml
+  120  ansible-playbook ntpplaybook.yml
+  122  ansible-playbook ntpplaybook.yml
+  124  vi /etc/ansible/hosts
+  128  ansible app -s -m group -a "name=admin state=present"
+  129  ansible app -m ping
+  130  vi /etc/ansible/hosts
+  131  sudo vi /etc/ansible/hosts
+  132  sudo vim /etc/ansible/hosts
+  133  ansible app -m ping
+  134  ansible app -s -m group -a "name=admin state=present" --limit "192.168.0.62"
+  135  ansible app -s -m group -a "name=admin state=present"
+  137  ansible app -s -m user -a "name=ashish group=admin createhome=yes"
+  138  ansible app -s -m user -a "name=ashish state=absent remove=yes"
+  139  ansible app -s -m user -a "name=ashish group=admin createhome=yes generate_ssh_key=yes"
+  141  ansible-playbook ntpplaybookhttpd.yml
+  142  ansible-playbook ntpplaybookhttpd.yml --limit "192.168.0.62"
+  144  ansible-playbook ntpplaybookhttpd.yml --limit "192.168.0.62"
+  145     26  history|grep -i a
+
+
+[vagrant@controller ~]$ history|grep -i play
+  111  sudo vim ntpplaybook.yml
+  112  ansible-playbook ntpplaybook.yml
+  113  sudo vim ntpplaybook.yml
+  114  ansible-playbook ntpplaybook.yml
+  115  sudo vim ntpplaybook.yml
+  116  ansible-playbook ntpplaybook.yml
+  117  sudo vim ntpplaybook.yml
+  118  ansible-playbook ntpplaybook.yml
+  119  sudo vim ntpplaybook.yml
+  120  ansible-playbook ntpplaybook.yml
+  121  sudo vim ntpplaybook.yml
+  122  ansible-playbook ntpplaybook.yml
+  123  sudo vim ntpplaybook.yml
+  140  sudo vim ntpplaybookhttpd.yml
+  141  ansible-playbook ntpplaybookhttpd.yml
+  142  ansible-playbook ntpplaybookhttpd.yml --limit "192.168.0.62"
+  143  sudo vim ntpplaybookhttpd.yml
+  144  ansible-playbook ntpplaybookhttpd.yml --limit "192.168.0.62"
+  150  history|grep -i play
 
 
 
