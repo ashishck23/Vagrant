@@ -758,6 +758,62 @@ SSH password:
 }
 [vagrant@controller ~]$
 
+
+[vagrant@controller ~]$ history|grep -i ansible
+    6  sudo yum install ansible
+    7  ansible --version
+    9  sudo vim /etc/ansible/hosts
+   10  ansible myappserver -m ping
+   11  ansible myappserver -b -k -m ping
+   12  ansible myappserver -b -k -m yum -a "name=ntp state=present"
+   13  ansible myappserver -b -k -m service -a "name=ntpd state=started"
+   14  ansible myappserver -b -k -m service -a "name=ntpd state=status"
+   15  ansible myappserver -b -k -m service -a "name=ntpd state=started"
+   16  sudo vim /etc/ansible/hosts
+   17  ansible app -m service -a "name=ntpd state=started"
+   18  sudo vim /etc/ansible/hosts
+   19  ansible app -m service -a "name=ntpd state=started"
+   20  sudo vim /etc/ansible/hosts
+   21  history| ansible
+   22  history|grep -i ansible
+   23  ansible app -b -k -m yum -a "name=ntp state=present"
+   24  sudo vim /etc/ansible/hosts
+   25  ansible app -m ping
+   26  history|grep -i ansible
+[vagrant@controller ~]$ ansible myappserver -^C-k -m pingansible myappserver -b -k -m ping
+[vagrant@controller ~]$ ansible app -b -k -m ping
+SSH password:
+192.168.0.50 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+192.168.0.62 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+[vagrant@controller ~]$ ansible app -b -k -m yum -a "name=ntp state=present"
+SSH password:
+192.168.0.50 | SUCCESS => {
+    "changed": false,
+    "msg": "",
+    "rc": 0,
+    "results": [
+        "ntp-4.2.6p5-28.el7.centos.x86_64 providing ntp is already installed"
+    ]
+}
+192.168.0.62 | SUCCESS => {
+    "changed": true,
+    "msg": "",
+    "rc": 0,
+    "results": [
+        "Loaded plugins: fastestmirror\nLoading mirror speeds from cached hostfile\n * base: centos.excellmedia.net\n * extras: centos.excellmedia.net\n * updates: centos.excellmedia.net\nResolving Dependencies\n--> Running transaction check\n---> Package ntp.x86_64 0:4.2.6p5-28.el7.centos will be installed\n--> Processing Dependency: ntpdate = 4.2.6p5-28.el7.centos for package: ntp-4.2.6p5-28.el7.centos.x86_64\n--> Processing Dependency: libopts.so.25()(64bit) for package: ntp-4.2.6p5-28.el7.centos.x86_64\n--> Running transaction check\n---> Package autogen-libopts.x86_64 0:5.18-5.el7 will be installed\n---> Package ntpdate.x86_64 0:4.2.6p5-28.el7.centos will be installed\n--> Finished Dependency Resolution\n\nDependencies Resolved\n\n================================================================================\n Package              Arch        Version                       Repository\n                                                                           Size\n================================================================================\nInstalling:\n ntp                  x86_64      4.2.6p5-28.el7.centos         base      549 k\nInstalling for dependencies:\n autogen-libopts      x86_64      5.18-5.el7                    base       66 k\n ntpdate              x86_64      4.2.6p5-28.el7.centos         base       86 k\n\nTransaction Summary\n================================================================================\nInstall  1 Package (+2 Dependent packages)\n\nTotal download size: 701 k\nInstalled size: 1.6 M\nDownloading packages:\n--------------------------------------------------------------------------------\nTotal                                              850 kB/s | 701 kB  00:00     \nRunning transaction check\nRunning transaction test\nTransaction test succeeded\nRunning transaction\n  Installing : autogen-libopts-5.18-5.el7.x86_64                            1/3 \n  Installing : ntpdate-4.2.6p5-28.el7.centos.x86_64                         2/3 \n  Installing : ntp-4.2.6p5-28.el7.centos.x86_64                             3/3 \n  Verifying  : ntpdate-4.2.6p5-28.el7.centos.x86_64                         1/3 \n  Verifying  : autogen-libopts-5.18-5.el7.x86_64                            2/3 \n  Verifying  : ntp-4.2.6p5-28.el7.centos.x86_64                             3/3 \n\nInstalled:\n  ntp.x86_64 0:4.2.6p5-28.el7.centos                                            \n\nDependency Installed:\n  autogen-libopts.x86_64 0:5.18-5.el7   ntpdate.x86_64 0:4.2.6p5-28.el7.centos  \n\nComplete!\n"
+    ]
+}
+[vagrant@controller ~]$
+
+
+
+[vagrant@controller ~]$ vi /etc/ansible/hosts
 [app]
 192.168.0.50
 
@@ -767,3 +823,8 @@ SSH password:
 ansible_connection=ssh
 ansible_ssh_user=vagrant
 ansible_ssh_pass=vagrant
+
+
+[vagrant@controller ~]$ sudo vi /etc/ansible/ansible.cfg
+host_key_checking = False
+
