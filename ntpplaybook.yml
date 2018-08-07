@@ -1,0 +1,31 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Ensure NTP (for time sync
+    yum
+
+
+
+
+---
+- hosts: all
+  become: yes
+  task:
+  - name: Install NTP
+    yum: name=ntp state=present
+  - name: Start NTP Daemon
+    service: name:ntpd state=started enabled=yes
+
+
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Install NTP
+    yum: name=ntp state=present
+  - name: Start NTP Daemon
+    service: name=ntpd state=started enabled=yes
+
+
+ansible-playbook ntpplaybook.yml
