@@ -29,3 +29,42 @@
 
 
 ansible-playbook ntpplaybook.yml
+ansible-playbook ntpplaybook.yml
+ERROR! this task 'service' has extra params, which is only allowed in the following modules: shell, win_shell, include_vars, add_host, raw, include_role, meta, set_fact, include, import_tasks, script, import_role, include_tasks, group_by, command, win_command
+
+The error appears to have been in '/home/vagrant/ntpplaybook.yml': line 7, column 5, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+    yum: name=ntp state=present
+  - name: Start NTP Daemon
+    ^ here
+
+[vagrant@controller ~]$ sudo vim ntpplaybook.yml
+[vagrant@controller ~]$ ansible-playbook ntpplaybook.yml
+
+PLAY [all] ************************************************************************************************************************************************
+
+TASK [Gathering Facts] ************************************************************************************************************************************
+fatal: [192.168.0.50]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Permission denied (publickey,password).\r\n", "unreachable": true}
+fatal: [192.168.0.62]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Permission denied (publickey,password).\r\n", "unreachable": true}
+        to retry, use: --limit @/home/vagrant/ntpplaybook.retry
+
+PLAY RECAP ************************************************************************************************************************************************
+192.168.0.50               : ok=0    changed=0    unreachable=1    failed=0
+192.168.0.62               : ok=0    changed=0    unreachable=1    failed=0
+
+[vagrant@controller ~]$ sudo vim ntpplaybook.yml
+[vagrant@controller ~]$ ansible-playbook ntpplaybook.yml
+
+PLAY [all] ************************************************************************************************************************************************
+
+TASK [Gathering Facts] ************************************************************************************************************************************
+fatal: [192.168.0.50]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Permission denied (publickey,password).\r\n", "unreachable": true}
+fatal: [192.168.0.62]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Permission denied (publickey,password).\r\n", "unreachable": true}
+        to retry, use: --limit @/home/vagrant/ntpplaybook.retry
+
+PLAY RECAP ************************************************************************************************************************************************
+192.168.0.50               : ok=0    changed=0    unreachable=1    failed=0
+192.168.0.62               : ok=0    changed=0    unreachable=1    failed=0
