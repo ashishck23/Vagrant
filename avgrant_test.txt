@@ -1,0 +1,606 @@
+controller - 192.168.0.37
+app1 - 192.168.0.50/192.168.0.51
+
+
+login as: vagrant
+vagrant@192.168.0.37's password:
+Access denied
+vagrant@192.168.0.37's password:
+Last login: Tue Aug  7 09:25:57 2018 from 10.0.2.2
+[vagrant@controller ~]$ ps-ef| grep an
+-bash: ps-ef: command not found
+[vagrant@controller ~]$ ps -ef| grep an*
+root         1     0  0 09:16 ?        00:00:01 /usr/lib/systemd/systemd --switched-root --system --deserialize 22
+root         2     0  0 09:16 ?        00:00:00 [kthreadd]
+root         7     2  0 09:16 ?        00:00:00 [migration/0]
+root        10     2  0 09:16 ?        00:00:00 [lru-add-drain]
+root        11     2  0 09:16 ?        00:00:00 [watchdog/0]
+root        12     2  0 09:16 ?        00:00:00 [watchdog/1]
+root        13     2  0 09:16 ?        00:00:00 [migration/1]
+root        20     2  0 09:16 ?        00:00:00 [khungtaskd]
+root        21     2  0 09:16 ?        00:00:00 [writeback]
+root        28     2  0 09:16 ?        00:00:00 [edac-poller]
+root        31     2  0 09:16 ?        00:00:00 [kswapd0]
+root        43     2  0 09:16 ?        00:00:00 [kmpath_rdacd]
+root        44     2  0 09:16 ?        00:00:00 [kaluad]
+root        47     2  0 09:16 ?        00:00:00 [ipv6_addrconf]
+root        94     2  0 09:16 ?        00:00:00 [kauditd]
+root       275     2  0 09:16 ?        00:00:00 [ata_sff]
+root       376     2  0 09:16 ?        00:00:00 [xfsalloc]
+root       377     2  0 09:16 ?        00:00:00 [xfs_mru_cache]
+root       379     2  0 09:16 ?        00:00:00 [xfs-data/dm-0]
+root       382     2  0 09:16 ?        00:00:00 [xfs-reclaim/dm-]
+root       385     2  0 09:16 ?        00:00:00 [xfsaild/dm-0]
+root       456     1  0 09:16 ?        00:00:00 /usr/lib/systemd/systemd-journald
+root       480     1  0 09:16 ?        00:00:00 /usr/sbin/lvmetad -f
+root       534     2  0 09:16 ?        00:00:00 [xfs-buf/sda1]
+root       535     2  0 09:16 ?        00:00:00 [xfs-data/sda1]
+root       536     2  0 09:16 ?        00:00:00 [xfs-conv/sda1]
+root       537     2  0 09:16 ?        00:00:00 [xfs-cil/sda1]
+root       538     2  0 09:16 ?        00:00:00 [xfs-reclaim/sda]
+root       539     2  0 09:16 ?        00:00:00 [xfs-log/sda1]
+root       541     2  0 09:16 ?        00:00:00 [xfsaild/sda1]
+root       543     2  0 09:16 ?        00:00:00 [ttm_swap]
+root       558     2  0 09:16 ?        00:00:00 [xfs-data/dm-2]
+root       561     2  0 09:16 ?        00:00:00 [xfs-reclaim/dm-]
+root       564     2  0 09:16 ?        00:00:00 [xfsaild/dm-2]
+root       593     1  0 09:16 ?        00:00:00 /sbin/auditd
+dbus       618     1  0 09:16 ?        00:00:00 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation
+root       650     1  0 09:16 ?        00:00:00 /usr/sbin/irqbalance --foreground
+root       668     1  0 09:16 tty1     00:00:00 /sbin/agetty --noclear tty1 linux
+root       804     1  0 09:16 ?        00:00:00 /usr/sbin/VBoxService --pidfile /var/run/vboxadd-service.sh
+root      1097     1  0 09:16 ?        00:00:00 /usr/libexec/postfix/master -w
+root      2926     1  0 09:16 ?        00:00:00 /usr/sbin/NetworkManager --no-daemon
+root      2951  2926  0 09:16 ?        00:00:00 /sbin/dhclient -d -q -sf /usr/libexec/nm-dhcp-helper -pf /var/run/dhclient-enp0s3.pid -lf /var/lib/Network anager/dhclient-81898ae0-13b6-426d-8e48-402a98a46bf3-enp0s3.lease -cf /var/lib/NetworkManager/dhclient-enp0s3.conf enp0s3
+root      2952  2926  0 09:16 ?        00:00:00 /sbin/dhclient -d -q -sf /usr/libexec/nm-dhcp-helper -pf /var/run/dhclient-enp0s8.pid -lf /var/lib/Network anager/dhclient-00cb8299-feb9-55b6-a378-3fdc720e0bc6-enp0s8.lease -cf /var/lib/NetworkManager/dhclient-enp0s8.conf enp0s8
+root      3339   988  0 09:27 ?        00:00:00 sshd: vagrant [priv]
+vagrant   3343  3339  0 09:28 ?        00:00:00 sshd: vagrant@pts/0
+vagrant   3344  3343  0 09:28 pts/0    00:00:00 -bash
+vagrant   3366  3344  8 09:29 pts/0    00:00:00 ps -ef
+vagrant   3367  3344  0 09:29 pts/0    00:00:00 grep --color=auto an*
+[vagrant@controller ~]$
+[vagrant@controller ~]$
+[vagrant@controller ~]$
+[vagrant@controller ~]$
+[vagrant@controller ~]$
+[vagrant@controller ~]$ sudo yum install epel-release
+Loaded plugins: fastestmirror
+Determining fastest mirrors
+ * base: mirrors.fibergrid.in
+ * extras: mirrors.fibergrid.in
+ * updates: mirrors.fibergrid.in
+base                                                                                                                                | 3.6 kB  00:00:00
+extras                                                                                                                              | 3.4 kB  00:00:00
+updates                                                                                                                             | 3.4 kB  00:00:00
+(1/4): base/7/x86_64/group_gz                                                                                                       | 166 kB  00:00:00
+(2/4): extras/7/x86_64/primary_db                                                                                                   | 173 kB  00:00:00
+(3/4): updates/7/x86_64/primary_db                                                                                                  | 4.3 MB  00:00:01
+(4/4): base/7/x86_64/primary_db                                                                                                     | 5.9 MB  00:00:03
+Resolving Dependencies
+--> Running transaction check
+---> Package epel-release.noarch 0:7-11 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+===========================================================================================================================================================
+ Package                                   Arch                                Version                           Repository                           Size
+===========================================================================================================================================================
+Installing:
+ epel-release                              noarch                              7-11                              extras                               15 k
+
+Transaction Summary
+===========================================================================================================================================================
+Install  1 Package
+
+Total download size: 15 k
+Installed size: 24 k
+Is this ok [y/d/N]: y
+Downloading packages:
+epel-release-7-11.noarch.rpm                                                                                                        |  15 kB  00:00:01
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : epel-release-7-11.noarch                                                                                                                1/1
+  Verifying  : epel-release-7-11.noarch                                                                                                                1/1
+
+Installed:
+  epel-release.noarch 0:7-11
+
+Complete!
+[vagrant@controller ~]$ sudo yum install ansible
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+epel/x86_64/metalink                                                                                                                | 6.0 kB  00:00:00
+ * base: mirrors.fibergrid.in
+ * epel: mirror.nes.co.id
+ * extras: mirrors.fibergrid.in
+ * updates: mirrors.fibergrid.in
+epel                                                                                                                                | 3.2 kB  00:00:00
+(1/3): epel/x86_64/updateinfo                                                                                                       | 931 kB  00:00:01
+(2/3): epel/x86_64/primary                                                                                                          | 3.6 MB  00:00:01
+(3/3): epel/x86_64/group_gz                                                                                                         |  88 kB  00:00:01
+epel                                                                                                                                           12631/12631
+Resolving Dependencies
+--> Running transaction check
+---> Package ansible.noarch 0:2.6.2-1.el7 will be installed
+--> Processing Dependency: python-keyczar for package: ansible-2.6.2-1.el7.noarch
+--> Processing Dependency: python-crypto for package: ansible-2.6.2-1.el7.noarch
+--> Running transaction check
+---> Package python-keyczar.noarch 0:0.71c-2.el7 will be installed
+---> Package python2-crypto.x86_64 0:2.6.1-15.el7 will be installed
+--> Processing Dependency: libtomcrypt.so.0()(64bit) for package: python2-crypto-2.6.1-15.el7.x86_64
+--> Running transaction check
+---> Package libtomcrypt.x86_64 0:1.17-26.el7 will be installed
+--> Processing Dependency: libtommath >= 0.42.0 for package: libtomcrypt-1.17-26.el7.x86_64
+--> Processing Dependency: libtommath.so.0()(64bit) for package: libtomcrypt-1.17-26.el7.x86_64
+--> Running transaction check
+---> Package libtommath.x86_64 0:0.42.0-6.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+===========================================================================================================================================================
+ Package                                  Arch                             Version                                  Repository                        Size
+===========================================================================================================================================================
+Installing:
+ ansible                                  noarch                           2.6.2-1.el7                              epel                              10 M
+Installing for dependencies:
+ libtomcrypt                              x86_64                           1.17-26.el7                              extras                           224 k
+ libtommath                               x86_64                           0.42.0-6.el7                             extras                            36 k
+ python-keyczar                           noarch                           0.71c-2.el7                              epel                             218 k
+ python2-crypto                           x86_64                           2.6.1-15.el7                             extras                           477 k
+
+Transaction Summary
+===========================================================================================================================================================
+Install  1 Package (+4 Dependent packages)
+
+Total download size: 11 M
+Installed size: 55 M
+Is this ok [y/d/N]: y
+Downloading packages:
+(1/5): libtomcrypt-1.17-26.el7.x86_64.rpm                                                                                           | 224 kB  00:00:00
+(2/5): libtommath-0.42.0-6.el7.x86_64.rpm                                                                                           |  36 kB  00:00:00
+warning: /var/cache/yum/x86_64/7/epel/packages/ansible-2.6.2-1.el7.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID 352c64e5: NOKEY 9.7 MB  00:00:00 ETA
+Public key for ansible-2.6.2-1.el7.noarch.rpm is not installed
+(3/5): ansible-2.6.2-1.el7.noarch.rpm                                                                                               |  10 MB  00:00:01
+(4/5): python-keyczar-0.71c-2.el7.noarch.rpm                                                                                        | 218 kB  00:00:00
+(5/5): python2-crypto-2.6.1-15.el7.x86_64.rpm                                                                                       | 477 kB  00:00:00
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                      4.4 MB/s |  11 MB  00:00:02
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+Importing GPG key 0x352C64E5:
+ Userid     : "Fedora EPEL (7) <epel@fedoraproject.org>"
+ Fingerprint: 91e9 7d7c 4a5e 96f1 7f3e 888f 6a2f aea2 352c 64e5
+ Package    : epel-release-7-11.noarch (@extras)
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+Is this ok [y/N]: y
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : libtommath-0.42.0-6.el7.x86_64                                                                                                          1/5
+  Installing : libtomcrypt-1.17-26.el7.x86_64                                                                                                          2/5
+  Installing : python2-crypto-2.6.1-15.el7.x86_64                                                                                                      3/5
+  Installing : python-keyczar-0.71c-2.el7.noarch                                                                                                       4/5
+  Installing : ansible-2.6.2-1.el7.noarch                                                                                                              5/5
+  Verifying  : python-keyczar-0.71c-2.el7.noarch                                                                                                       1/5
+  Verifying  : python2-crypto-2.6.1-15.el7.x86_64                                                                                                      2/5
+  Verifying  : libtomcrypt-1.17-26.el7.x86_64                                                                                                          3/5
+  Verifying  : libtommath-0.42.0-6.el7.x86_64                                                                                                          4/5
+  Verifying  : ansible-2.6.2-1.el7.noarch                                                                                                              5/5
+
+Installed:
+  ansible.noarch 0:2.6.2-1.el7
+
+Dependency Installed:
+  libtomcrypt.x86_64 0:1.17-26.el7    libtommath.x86_64 0:0.42.0-6.el7    python-keyczar.noarch 0:0.71c-2.el7    python2-crypto.x86_64 0:2.6.1-15.el7
+
+Complete!
+[vagrant@controller ~]$
+[vagrant@controller ~]$ ansible --version
+ansible 2.6.2
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = [u'/home/vagrant/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python2.7/site-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 2.7.5 (default, Jul 13 2018, 13:06:57) [GCC 4.8.5 20150623 (Red Hat 4.8.5-28)]
+[vagrant@controller ~]$ sudo yum -y install vim
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirrors.fibergrid.in
+ * epel: mirror.nes.co.id
+ * extras: mirrors.fibergrid.in
+ * updates: mirrors.fibergrid.in
+Resolving Dependencies
+--> Running transaction check
+---> Package vim-enhanced.x86_64 2:7.4.160-4.el7 will be installed
+--> Processing Dependency: vim-common = 2:7.4.160-4.el7 for package: 2:vim-enhanced-7.4.160-4.el7.x86_64
+--> Processing Dependency: libgpm.so.2()(64bit) for package: 2:vim-enhanced-7.4.160-4.el7.x86_64
+--> Running transaction check
+---> Package gpm-libs.x86_64 0:1.20.7-5.el7 will be installed
+---> Package vim-common.x86_64 2:7.4.160-4.el7 will be installed
+--> Processing Dependency: vim-filesystem for package: 2:vim-common-7.4.160-4.el7.x86_64
+--> Running transaction check
+---> Package vim-filesystem.x86_64 2:7.4.160-4.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+===========================================================================================================================================================
+ Package                                  Arch                             Version                                    Repository                      Size
+===========================================================================================================================================================
+Installing:
+ vim-enhanced                             x86_64                           2:7.4.160-4.el7                            base                           1.0 M
+Installing for dependencies:
+ gpm-libs                                 x86_64                           1.20.7-5.el7                               base                            32 k
+ vim-common                               x86_64                           2:7.4.160-4.el7                            base                           5.9 M
+ vim-filesystem                           x86_64                           2:7.4.160-4.el7                            base                            10 k
+
+Transaction Summary
+===========================================================================================================================================================
+Install  1 Package (+3 Dependent packages)
+
+Total download size: 7.0 M
+Installed size: 23 M
+Downloading packages:
+(1/4): gpm-libs-1.20.7-5.el7.x86_64.rpm                                                                                             |  32 kB  00:00:00
+(2/4): vim-filesystem-7.4.160-4.el7.x86_64.rpm                                                                                      |  10 kB  00:00:00
+(3/4): vim-enhanced-7.4.160-4.el7.x86_64.rpm                                                                                        | 1.0 MB  00:00:01
+(4/4): vim-common-7.4.160-4.el7.x86_64.rpm                                                                                          | 5.9 MB  00:00:02
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                      2.7 MB/s | 7.0 MB  00:00:02
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : gpm-libs-1.20.7-5.el7.x86_64                                                                                                            1/4
+  Installing : 2:vim-filesystem-7.4.160-4.el7.x86_64                                                                                                   2/4
+  Installing : 2:vim-common-7.4.160-4.el7.x86_64                                                                                                       3/4
+  Installing : 2:vim-enhanced-7.4.160-4.el7.x86_64                                                                                                     4/4
+  Verifying  : 2:vim-common-7.4.160-4.el7.x86_64                                                                                                       1/4
+  Verifying  : 2:vim-filesystem-7.4.160-4.el7.x86_64                                                                                                   2/4
+  Verifying  : gpm-libs-1.20.7-5.el7.x86_64                                                                                                            3/4
+  Verifying  : 2:vim-enhanced-7.4.160-4.el7.x86_64                                                                                                     4/4
+
+Installed:
+  vim-enhanced.x86_64 2:7.4.160-4.el7
+
+Dependency Installed:
+  gpm-libs.x86_64 0:1.20.7-5.el7                  vim-common.x86_64 2:7.4.160-4.el7                  vim-filesystem.x86_64 2:7.4.160-4.el7
+
+Complete!
+[vagrant@controller ~]$ sudo vim /etc/ansible/hosts
+[vagrant@controller ~]$ ansible myappserver -m ping
+The authenticity of host '192.168.0.50 (192.168.0.50)' can't be established.
+ECDSA key fingerprint is SHA256:/+Oi4cGylVhgBQPX9EJa/7pvjeKY7y9MIgx+HeiDL0M.
+ECDSA key fingerprint is MD5:4e:91:a7:dc:55:f8:28:a7:cb:ad:98:32:e3:3b:1b:04.
+Are you sure you want to continue connecting (yes/no)? yes
+192.168.0.50 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: Warning: Permanently added '192.168.0.50' (ECDSA) to the list of known hosts.\r\nPermission denied (publickey,password).\r\n",
+    "unreachable": true
+}
+[vagrant@controller ~]$ ansible myappserver -b -k -m ping
+SSH password:
+192.168.0.50 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+[vagrant@controller ~]$ ansible myappserver -b -k -m yum -a "name=ntp state=present"
+SSH password:
+192.168.0.50 | SUCCESS => {
+    "changed": true,
+    "msg": "",
+    "rc": 0,
+    "results": [
+        "Loaded plugins: fastestmirror\nLoading mirror speeds from cached hostfile\n * base: mirrors.fibergrid.in\n * extras: mirrors.fibergrid.in\n * updates: mirrors.fibergrid.in\nResolving Dependencies\n--> Running transaction check\n---> Package ntp.x86_64 0:4.2.6p5-28.el7.centos will be installed\n--> Processing Dependency: ntpdate = 4.2.6p5-28.el7.centos for package: ntp-4.2.6p5-28.el7.centos.x86_64\n--> Processing Dependency: libopts.so.25()(64bit) for package: ntp-4.2.6p5-28.el7.centos.x86_64\n--> Running transaction check\n---> Package autogen-libopts.x86_64 0:5.18-5.el7 will be installed\n---> Package ntpdate.x86_64 0:4.2.6p5-28.el7.centos will be installed\n--> Finished Dependency Resolution\n\nDependencies Resolved\n\n================================================================================\n Package              Arch        Version                       Repository\n                                                                           Size\n================================================================================\nInstalling:\n ntp                  x86_64      4.2.6p5-28.el7.centos         base      549 k\nInstalling for dependencies:\n autogen-libopts      x86_64      5.18-5.el7                    base       66 k\n ntpdate              x86_64      4.2.6p5-28.el7.centos         base       86 k\n\nTransaction Summary\n================================================================================\nInstall  1 Package (+2 Dependent packages)\n\nTotal download size: 701 k\nInstalled size: 1.6 M\nDownloading packages:\n--------------------------------------------------------------------------------\nTotal                                              749 kB/s | 701 kB  00:00     \nRunning transaction check\nRunning transaction test\nTransaction test succeeded\nRunning transaction\n  Installing : autogen-libopts-5.18-5.el7.x86_64                            1/3 \n  Installing : ntpdate-4.2.6p5-28.el7.centos.x86_64                         2/3 \n  Installing : ntp-4.2.6p5-28.el7.centos.x86_64                             3/3 \n  Verifying  : ntpdate-4.2.6p5-28.el7.centos.x86_64                         1/3 \n  Verifying  : autogen-libopts-5.18-5.el7.x86_64                            2/3 \n  Verifying  : ntp-4.2.6p5-28.el7.centos.x86_64                             3/3 \n\nInstalled:\n  ntp.x86_64 0:4.2.6p5-28.el7.centos                                            \n\nDependency Installed:\n  autogen-libopts.x86_64 0:5.18-5.el7   ntpdate.x86_64 0:4.2.6p5-28.el7.centos  \n\nComplete!\n"
+    ]
+}
+[vagrant@controller ~]$
+
+
+
+
+
+------- Ansible
+
+
+login as: vagrant
+vagrant@192.168.0.37's password:
+Access denied
+vagrant@192.168.0.37's password:
+Last login: Tue Aug  7 09:25:57 2018 from 10.0.2.2
+[vagrant@controller ~]$ ps-ef| grep an
+-bash: ps-ef: command not found
+[vagrant@controller ~]$ ps -ef| grep an*
+root         1     0  0 09:16 ?        00:00:01 /usr/lib/systemd/systemd --switched-root --system --deserialize 22
+root         2     0  0 09:16 ?        00:00:00 [kthreadd]
+root         7     2  0 09:16 ?        00:00:00 [migration/0]
+root        10     2  0 09:16 ?        00:00:00 [lru-add-drain]
+root        11     2  0 09:16 ?        00:00:00 [watchdog/0]
+root        12     2  0 09:16 ?        00:00:00 [watchdog/1]
+root        13     2  0 09:16 ?        00:00:00 [migration/1]
+root        20     2  0 09:16 ?        00:00:00 [khungtaskd]
+root        21     2  0 09:16 ?        00:00:00 [writeback]
+root        28     2  0 09:16 ?        00:00:00 [edac-poller]
+root        31     2  0 09:16 ?        00:00:00 [kswapd0]
+root        43     2  0 09:16 ?        00:00:00 [kmpath_rdacd]
+root        44     2  0 09:16 ?        00:00:00 [kaluad]
+root        47     2  0 09:16 ?        00:00:00 [ipv6_addrconf]
+root        94     2  0 09:16 ?        00:00:00 [kauditd]
+root       275     2  0 09:16 ?        00:00:00 [ata_sff]
+root       376     2  0 09:16 ?        00:00:00 [xfsalloc]
+root       377     2  0 09:16 ?        00:00:00 [xfs_mru_cache]
+root       379     2  0 09:16 ?        00:00:00 [xfs-data/dm-0]
+root       382     2  0 09:16 ?        00:00:00 [xfs-reclaim/dm-]
+root       385     2  0 09:16 ?        00:00:00 [xfsaild/dm-0]
+root       456     1  0 09:16 ?        00:00:00 /usr/lib/systemd/systemd-journald
+root       480     1  0 09:16 ?        00:00:00 /usr/sbin/lvmetad -f
+root       534     2  0 09:16 ?        00:00:00 [xfs-buf/sda1]
+root       535     2  0 09:16 ?        00:00:00 [xfs-data/sda1]
+root       536     2  0 09:16 ?        00:00:00 [xfs-conv/sda1]
+root       537     2  0 09:16 ?        00:00:00 [xfs-cil/sda1]
+root       538     2  0 09:16 ?        00:00:00 [xfs-reclaim/sda]
+root       539     2  0 09:16 ?        00:00:00 [xfs-log/sda1]
+root       541     2  0 09:16 ?        00:00:00 [xfsaild/sda1]
+root       543     2  0 09:16 ?        00:00:00 [ttm_swap]
+root       558     2  0 09:16 ?        00:00:00 [xfs-data/dm-2]
+root       561     2  0 09:16 ?        00:00:00 [xfs-reclaim/dm-]
+root       564     2  0 09:16 ?        00:00:00 [xfsaild/dm-2]
+root       593     1  0 09:16 ?        00:00:00 /sbin/auditd
+dbus       618     1  0 09:16 ?        00:00:00 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation
+root       650     1  0 09:16 ?        00:00:00 /usr/sbin/irqbalance --foreground
+root       668     1  0 09:16 tty1     00:00:00 /sbin/agetty --noclear tty1 linux
+root       804     1  0 09:16 ?        00:00:00 /usr/sbin/VBoxService --pidfile /var/run/vboxadd-service.sh
+root      1097     1  0 09:16 ?        00:00:00 /usr/libexec/postfix/master -w
+root      2926     1  0 09:16 ?        00:00:00 /usr/sbin/NetworkManager --no-daemon
+root      2951  2926  0 09:16 ?        00:00:00 /sbin/dhclient -d -q -sf /usr/libexec/nm-dhcp-helper -pf /var/run/dhclient-enp0s3.pid -lf /var/lib/Network anager/dhclient-81898ae0-13b6-426d-8e48-402a98a46bf3-enp0s3.lease -cf /var/lib/NetworkManager/dhclient-enp0s3.conf enp0s3
+root      2952  2926  0 09:16 ?        00:00:00 /sbin/dhclient -d -q -sf /usr/libexec/nm-dhcp-helper -pf /var/run/dhclient-enp0s8.pid -lf /var/lib/Network anager/dhclient-00cb8299-feb9-55b6-a378-3fdc720e0bc6-enp0s8.lease -cf /var/lib/NetworkManager/dhclient-enp0s8.conf enp0s8
+root      3339   988  0 09:27 ?        00:00:00 sshd: vagrant [priv]
+vagrant   3343  3339  0 09:28 ?        00:00:00 sshd: vagrant@pts/0
+vagrant   3344  3343  0 09:28 pts/0    00:00:00 -bash
+vagrant   3366  3344  8 09:29 pts/0    00:00:00 ps -ef
+vagrant   3367  3344  0 09:29 pts/0    00:00:00 grep --color=auto an*
+[vagrant@controller ~]$
+[vagrant@controller ~]$
+[vagrant@controller ~]$
+[vagrant@controller ~]$
+[vagrant@controller ~]$
+[vagrant@controller ~]$ sudo yum install epel-release
+Loaded plugins: fastestmirror
+Determining fastest mirrors
+ * base: mirrors.fibergrid.in
+ * extras: mirrors.fibergrid.in
+ * updates: mirrors.fibergrid.in
+base                                                                                                                                | 3.6 kB  00:00:00
+extras                                                                                                                              | 3.4 kB  00:00:00
+updates                                                                                                                             | 3.4 kB  00:00:00
+(1/4): base/7/x86_64/group_gz                                                                                                       | 166 kB  00:00:00
+(2/4): extras/7/x86_64/primary_db                                                                                                   | 173 kB  00:00:00
+(3/4): updates/7/x86_64/primary_db                                                                                                  | 4.3 MB  00:00:01
+(4/4): base/7/x86_64/primary_db                                                                                                     | 5.9 MB  00:00:03
+Resolving Dependencies
+--> Running transaction check
+---> Package epel-release.noarch 0:7-11 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+===========================================================================================================================================================
+ Package                                   Arch                                Version                           Repository                           Size
+===========================================================================================================================================================
+Installing:
+ epel-release                              noarch                              7-11                              extras                               15 k
+
+Transaction Summary
+===========================================================================================================================================================
+Install  1 Package
+
+Total download size: 15 k
+Installed size: 24 k
+Is this ok [y/d/N]: y
+Downloading packages:
+epel-release-7-11.noarch.rpm                                                                                                        |  15 kB  00:00:01
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : epel-release-7-11.noarch                                                                                                                1/1
+  Verifying  : epel-release-7-11.noarch                                                                                                                1/1
+
+Installed:
+  epel-release.noarch 0:7-11
+
+Complete!
+[vagrant@controller ~]$ sudo yum install ansible
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+epel/x86_64/metalink                                                                                                                | 6.0 kB  00:00:00
+ * base: mirrors.fibergrid.in
+ * epel: mirror.nes.co.id
+ * extras: mirrors.fibergrid.in
+ * updates: mirrors.fibergrid.in
+epel                                                                                                                                | 3.2 kB  00:00:00
+(1/3): epel/x86_64/updateinfo                                                                                                       | 931 kB  00:00:01
+(2/3): epel/x86_64/primary                                                                                                          | 3.6 MB  00:00:01
+(3/3): epel/x86_64/group_gz                                                                                                         |  88 kB  00:00:01
+epel                                                                                                                                           12631/12631
+Resolving Dependencies
+--> Running transaction check
+---> Package ansible.noarch 0:2.6.2-1.el7 will be installed
+--> Processing Dependency: python-keyczar for package: ansible-2.6.2-1.el7.noarch
+--> Processing Dependency: python-crypto for package: ansible-2.6.2-1.el7.noarch
+--> Running transaction check
+---> Package python-keyczar.noarch 0:0.71c-2.el7 will be installed
+---> Package python2-crypto.x86_64 0:2.6.1-15.el7 will be installed
+--> Processing Dependency: libtomcrypt.so.0()(64bit) for package: python2-crypto-2.6.1-15.el7.x86_64
+--> Running transaction check
+---> Package libtomcrypt.x86_64 0:1.17-26.el7 will be installed
+--> Processing Dependency: libtommath >= 0.42.0 for package: libtomcrypt-1.17-26.el7.x86_64
+--> Processing Dependency: libtommath.so.0()(64bit) for package: libtomcrypt-1.17-26.el7.x86_64
+--> Running transaction check
+---> Package libtommath.x86_64 0:0.42.0-6.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+===========================================================================================================================================================
+ Package                                  Arch                             Version                                  Repository                        Size
+===========================================================================================================================================================
+Installing:
+ ansible                                  noarch                           2.6.2-1.el7                              epel                              10 M
+Installing for dependencies:
+ libtomcrypt                              x86_64                           1.17-26.el7                              extras                           224 k
+ libtommath                               x86_64                           0.42.0-6.el7                             extras                            36 k
+ python-keyczar                           noarch                           0.71c-2.el7                              epel                             218 k
+ python2-crypto                           x86_64                           2.6.1-15.el7                             extras                           477 k
+
+Transaction Summary
+===========================================================================================================================================================
+Install  1 Package (+4 Dependent packages)
+
+Total download size: 11 M
+Installed size: 55 M
+Is this ok [y/d/N]: y
+Downloading packages:
+(1/5): libtomcrypt-1.17-26.el7.x86_64.rpm                                                                                           | 224 kB  00:00:00
+(2/5): libtommath-0.42.0-6.el7.x86_64.rpm                                                                                           |  36 kB  00:00:00
+warning: /var/cache/yum/x86_64/7/epel/packages/ansible-2.6.2-1.el7.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID 352c64e5: NOKEY 9.7 MB  00:00:00 ETA
+Public key for ansible-2.6.2-1.el7.noarch.rpm is not installed
+(3/5): ansible-2.6.2-1.el7.noarch.rpm                                                                                               |  10 MB  00:00:01
+(4/5): python-keyczar-0.71c-2.el7.noarch.rpm                                                                                        | 218 kB  00:00:00
+(5/5): python2-crypto-2.6.1-15.el7.x86_64.rpm                                                                                       | 477 kB  00:00:00
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                      4.4 MB/s |  11 MB  00:00:02
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+Importing GPG key 0x352C64E5:
+ Userid     : "Fedora EPEL (7) <epel@fedoraproject.org>"
+ Fingerprint: 91e9 7d7c 4a5e 96f1 7f3e 888f 6a2f aea2 352c 64e5
+ Package    : epel-release-7-11.noarch (@extras)
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+Is this ok [y/N]: y
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : libtommath-0.42.0-6.el7.x86_64                                                                                                          1/5
+  Installing : libtomcrypt-1.17-26.el7.x86_64                                                                                                          2/5
+  Installing : python2-crypto-2.6.1-15.el7.x86_64                                                                                                      3/5
+  Installing : python-keyczar-0.71c-2.el7.noarch                                                                                                       4/5
+  Installing : ansible-2.6.2-1.el7.noarch                                                                                                              5/5
+  Verifying  : python-keyczar-0.71c-2.el7.noarch                                                                                                       1/5
+  Verifying  : python2-crypto-2.6.1-15.el7.x86_64                                                                                                      2/5
+  Verifying  : libtomcrypt-1.17-26.el7.x86_64                                                                                                          3/5
+  Verifying  : libtommath-0.42.0-6.el7.x86_64                                                                                                          4/5
+  Verifying  : ansible-2.6.2-1.el7.noarch                                                                                                              5/5
+
+Installed:
+  ansible.noarch 0:2.6.2-1.el7
+
+Dependency Installed:
+  libtomcrypt.x86_64 0:1.17-26.el7    libtommath.x86_64 0:0.42.0-6.el7    python-keyczar.noarch 0:0.71c-2.el7    python2-crypto.x86_64 0:2.6.1-15.el7
+
+Complete!
+[vagrant@controller ~]$
+[vagrant@controller ~]$ ansible --version
+ansible 2.6.2
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = [u'/home/vagrant/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python2.7/site-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 2.7.5 (default, Jul 13 2018, 13:06:57) [GCC 4.8.5 20150623 (Red Hat 4.8.5-28)]
+[vagrant@controller ~]$ sudo yum -y install vim
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirrors.fibergrid.in
+ * epel: mirror.nes.co.id
+ * extras: mirrors.fibergrid.in
+ * updates: mirrors.fibergrid.in
+Resolving Dependencies
+--> Running transaction check
+---> Package vim-enhanced.x86_64 2:7.4.160-4.el7 will be installed
+--> Processing Dependency: vim-common = 2:7.4.160-4.el7 for package: 2:vim-enhanced-7.4.160-4.el7.x86_64
+--> Processing Dependency: libgpm.so.2()(64bit) for package: 2:vim-enhanced-7.4.160-4.el7.x86_64
+--> Running transaction check
+---> Package gpm-libs.x86_64 0:1.20.7-5.el7 will be installed
+---> Package vim-common.x86_64 2:7.4.160-4.el7 will be installed
+--> Processing Dependency: vim-filesystem for package: 2:vim-common-7.4.160-4.el7.x86_64
+--> Running transaction check
+---> Package vim-filesystem.x86_64 2:7.4.160-4.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+===========================================================================================================================================================
+ Package                                  Arch                             Version                                    Repository                      Size
+===========================================================================================================================================================
+Installing:
+ vim-enhanced                             x86_64                           2:7.4.160-4.el7                            base                           1.0 M
+Installing for dependencies:
+ gpm-libs                                 x86_64                           1.20.7-5.el7                               base                            32 k
+ vim-common                               x86_64                           2:7.4.160-4.el7                            base                           5.9 M
+ vim-filesystem                           x86_64                           2:7.4.160-4.el7                            base                            10 k
+
+Transaction Summary
+===========================================================================================================================================================
+Install  1 Package (+3 Dependent packages)
+
+Total download size: 7.0 M
+Installed size: 23 M
+Downloading packages:
+(1/4): gpm-libs-1.20.7-5.el7.x86_64.rpm                                                                                             |  32 kB  00:00:00
+(2/4): vim-filesystem-7.4.160-4.el7.x86_64.rpm                                                                                      |  10 kB  00:00:00
+(3/4): vim-enhanced-7.4.160-4.el7.x86_64.rpm                                                                                        | 1.0 MB  00:00:01
+(4/4): vim-common-7.4.160-4.el7.x86_64.rpm                                                                                          | 5.9 MB  00:00:02
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                      2.7 MB/s | 7.0 MB  00:00:02
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : gpm-libs-1.20.7-5.el7.x86_64                                                                                                            1/4
+  Installing : 2:vim-filesystem-7.4.160-4.el7.x86_64                                                                                                   2/4
+  Installing : 2:vim-common-7.4.160-4.el7.x86_64                                                                                                       3/4
+  Installing : 2:vim-enhanced-7.4.160-4.el7.x86_64                                                                                                     4/4
+  Verifying  : 2:vim-common-7.4.160-4.el7.x86_64                                                                                                       1/4
+  Verifying  : 2:vim-filesystem-7.4.160-4.el7.x86_64                                                                                                   2/4
+  Verifying  : gpm-libs-1.20.7-5.el7.x86_64                                                                                                            3/4
+  Verifying  : 2:vim-enhanced-7.4.160-4.el7.x86_64                                                                                                     4/4
+
+Installed:
+  vim-enhanced.x86_64 2:7.4.160-4.el7
+
+Dependency Installed:
+  gpm-libs.x86_64 0:1.20.7-5.el7                  vim-common.x86_64 2:7.4.160-4.el7                  vim-filesystem.x86_64 2:7.4.160-4.el7
+
+Complete!
+[vagrant@controller ~]$ sudo vim /etc/ansible/hosts
+[vagrant@controller ~]$ ansible myappserver -m ping
+The authenticity of host '192.168.0.50 (192.168.0.50)' can't be established.
+ECDSA key fingerprint is SHA256:/+Oi4cGylVhgBQPX9EJa/7pvjeKY7y9MIgx+HeiDL0M.
+ECDSA key fingerprint is MD5:4e:91:a7:dc:55:f8:28:a7:cb:ad:98:32:e3:3b:1b:04.
+Are you sure you want to continue connecting (yes/no)? yes
+192.168.0.50 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: Warning: Permanently added '192.168.0.50' (ECDSA) to the list of known hosts.\r\nPermission denied (publickey,password).\r\n",
+    "unreachable": true
+}
+[vagrant@controller ~]$ ansible myappserver -b -k -m ping
+SSH password:
+192.168.0.50 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+[vagrant@controller ~]$ ansible myappserver -b -k -m yum -a "name=ntp state=present"
+SSH password:
+192.168.0.50 | SUCCESS => {
+    "changed": true,
+    "msg": "",
+    "rc": 0,
+    "results": [
+        "Loaded plugins: fastestmirror\nLoading mirror speeds from cached hostfile\n * base: mirrors.fibergrid.in\n * extras: mirrors.fibergrid.in\n * updates: mirrors.fibergrid.in\nResolving Dependencies\n--> Running transaction check\n---> Package ntp.x86_64 0:4.2.6p5-28.el7.centos will be installed\n--> Processing Dependency: ntpdate = 4.2.6p5-28.el7.centos for package: ntp-4.2.6p5-28.el7.centos.x86_64\n--> Processing Dependency: libopts.so.25()(64bit) for package: ntp-4.2.6p5-28.el7.centos.x86_64\n--> Running transaction check\n---> Package autogen-libopts.x86_64 0:5.18-5.el7 will be installed\n---> Package ntpdate.x86_64 0:4.2.6p5-28.el7.centos will be installed\n--> Finished Dependency Resolution\n\nDependencies Resolved\n\n================================================================================\n Package              Arch        Version                       Repository\n                                                                           Size\n================================================================================\nInstalling:\n ntp                  x86_64      4.2.6p5-28.el7.centos         base      549 k\nInstalling for dependencies:\n autogen-libopts      x86_64      5.18-5.el7                    base       66 k\n ntpdate              x86_64      4.2.6p5-28.el7.centos         base       86 k\n\nTransaction Summary\n================================================================================\nInstall  1 Package (+2 Dependent packages)\n\nTotal download size: 701 k\nInstalled size: 1.6 M\nDownloading packages:\n--------------------------------------------------------------------------------\nTotal                                              749 kB/s | 701 kB  00:00     \nRunning transaction check\nRunning transaction test\nTransaction test succeeded\nRunning transaction\n  Installing : autogen-libopts-5.18-5.el7.x86_64                            1/3 \n  Installing : ntpdate-4.2.6p5-28.el7.centos.x86_64                         2/3 \n  Installing : ntp-4.2.6p5-28.el7.centos.x86_64                             3/3 \n  Verifying  : ntpdate-4.2.6p5-28.el7.centos.x86_64                         1/3 \n  Verifying  : autogen-libopts-5.18-5.el7.x86_64                            2/3 \n  Verifying  : ntp-4.2.6p5-28.el7.centos.x86_64                             3/3 \n\nInstalled:\n  ntp.x86_64 0:4.2.6p5-28.el7.centos                                            \n\nDependency Installed:\n  autogen-libopts.x86_64 0:5.18-5.el7   ntpdate.x86_64 0:4.2.6p5-28.el7.centos  \n\nComplete!\n"
+    ]
+}
+[vagrant@controller ~]$
